@@ -3,6 +3,20 @@ type TimezoneConfig = {
 	timezone: string;
 };
 
+// Function to format city name from timezone identifier
+function format_city_name(timezone: string): string {
+	// Get the city part after the last '/'
+	const city = timezone.split('/').pop() || timezone;
+	// Replace underscores with spaces and fix common abbreviations
+	return city
+		.replace(/_/g, ' ')
+		.replace(/^([A-Z])/g, (match) => match.toUpperCase())
+		.replace(/([a-z])([A-Z])/g, '$1 $2') // Add space between camelCase
+		.replace(/\b(St)\b/g, 'Saint')
+		.replace(/\b(Ft)\b/g, 'Fort');
+}
+
+// Default timezones for initial display
 const DEFAULT_TIMEZONES = [
 	{ city: 'London', timezone: 'Europe/London' },
 	{ city: 'New York', timezone: 'America/New_York' },
@@ -11,18 +25,13 @@ const DEFAULT_TIMEZONES = [
 	{ city: 'Dubai', timezone: 'Asia/Dubai' },
 ];
 
-export const AVAILABLE_TIMEZONES = [
-	{ city: 'London', timezone: 'Europe/London' },
-	{ city: 'New York', timezone: 'America/New_York' },
-	{ city: 'Los Angeles', timezone: 'America/Los_Angeles' },
-	{ city: 'Tokyo', timezone: 'Asia/Tokyo' },
-	{ city: 'Sydney', timezone: 'Australia/Sydney' },
-	{ city: 'Dubai', timezone: 'Asia/Dubai' },
-	{ city: 'Singapore', timezone: 'Asia/Singapore' },
-	{ city: 'Hong Kong', timezone: 'Asia/Hong_Kong' },
-	{ city: 'Paris', timezone: 'Europe/Paris' },
-	{ city: 'Berlin', timezone: 'Europe/Berlin' },
-];
+// Get all available timezones from the system
+export const AVAILABLE_TIMEZONES = Intl.supportedValuesOf('timeZone')
+	.map(timezone => ({
+		city: format_city_name(timezone),
+		timezone
+	}))
+	.sort((a, b) => a.city.localeCompare(b.city));
 
 // State management using Svelte 5 runes
 let timezones = $state(DEFAULT_TIMEZONES);
