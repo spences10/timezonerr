@@ -108,11 +108,16 @@ export function remove_timezone(timezone_to_remove: string) {
 }
 
 export function get_current_hour(timezone: string): number {
-	return new Date()
-		.toLocaleString('en-GB', {
-			timeZone: timezone,
-			hour: '2-digit',
-			hour12: false,
-		})
-		.split(':')[0] as unknown as number;
+	const now = new Date();
+	const hour = parseInt(
+		now
+			.toLocaleString('en-GB', {
+				timeZone: timezone,
+				hour: '2-digit',
+				hour12: false,
+			})
+			.split(':')[0],
+	);
+
+	return hour;
 }
