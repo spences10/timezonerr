@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { get_search_terms } from '$lib/config/timezone-search';
 	import type { TimezoneConfig } from '$lib/state/timezone.svelte';
 	import {
 		AVAILABLE_TIMEZONES,
@@ -19,20 +20,7 @@
 			zones: group.zones.filter((zone) => {
 				const searchTerms = [
 					zone.city.toLowerCase(),
-					zone.timezone.toLowerCase(),
-					zone.timezone.split('/').join(' ').toLowerCase(),
-					// Add common timezone abbreviations
-					...(zone.timezone.includes('London') ? ['gmt', 'bst'] : []),
-					...(zone.timezone.includes('New_York')
-						? ['est', 'edt']
-						: []),
-					...(zone.timezone.includes('Los_Angeles')
-						? ['pst', 'pdt']
-						: []),
-					...(zone.timezone.includes('Chicago')
-						? ['cst', 'cdt']
-						: []),
-					// Add more common search terms
+					...get_search_terms(zone.timezone),
 					group.continent.toLowerCase(),
 				];
 
