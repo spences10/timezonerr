@@ -1,6 +1,11 @@
-type TimezoneConfig = {
+export type TimezoneConfig = {
 	city: string;
 	timezone: string;
+};
+
+type GroupedTimezones = {
+	continent: string;
+	zones: TimezoneConfig[];
 };
 
 // Function to format city name from timezone identifier
@@ -26,12 +31,30 @@ const DEFAULT_TIMEZONES = [
 ];
 
 // Get all available timezones from the system
-export const AVAILABLE_TIMEZONES = Intl.supportedValuesOf('timeZone')
-	.map(timezone => ({
-		city: format_city_name(timezone),
-		timezone
-	}))
-	.sort((a, b) => a.city.localeCompare(b.city));
+export const AVAILABLE_TIMEZONES: GroupedTimezones[] =
+	Intl.supportedValuesOf('timeZone')
+		.map((timezone) => ({
+			city: format_city_name(timezone),
+			timezone,
+			continent: timezone.split('/')[0].replace(/_/g, ' '),
+		}))
+		.reduce((groups: GroupedTimezones[], zone) => {
+			const continent = zone.continent;
+			const existing = groups.find((g) => g.continent === continent);
+			if (existing) {
+				existing.zones.push({
+					city: zone.city,
+					timezone: zone.timezone,
+				});
+			} else {
+				groups.push({
+					continent,
+					zones: [{ city: zone.city, timezone: zone.timezone }],
+				});
+			}
+			return groups;
+		}, [])
+		.sort((a, b) => a.continent.localeCompare(b.continent));
 
 // State management using Svelte 5 runes
 let timezones = $state(DEFAULT_TIMEZONES);
