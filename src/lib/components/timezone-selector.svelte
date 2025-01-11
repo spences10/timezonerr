@@ -11,16 +11,22 @@
 	}
 </script>
 
-<div class="form-control w-full max-w-xs">
-	<label class="label">
-		<span class="label-text">Add Timezone</span>
-	</label>
-	<select class="select select-bordered" bind:value={selected_index}>
-		{#each AVAILABLE_TIMEZONES as tz, index}
-			<option value={index}>{tz.city} ({tz.timezone})</option>
-		{/each}
-	</select>
-	<button class="btn btn-primary mt-2" onclick={handle_add}>
+<div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:gap-4">
+	<div class="form-control max-w-md flex-1">
+		<label class="label" for="timezone-selector">
+			<span class="label-text">Add Timezone</span>
+		</label>
+		<select
+			class="select select-bordered w-full"
+			id="timezone-selector"
+			bind:value={selected_index}
+		>
+			{#each AVAILABLE_TIMEZONES as tz, index}
+				<option value={index}>{tz.city} ({tz.timezone})</option>
+			{/each}
+		</select>
+	</div>
+	<button class="btn btn-primary" onclick={handle_add}>
 		Add Timezone
 	</button>
 </div>
