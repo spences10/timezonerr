@@ -13,50 +13,61 @@
 	});
 </script>
 
-<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+<div
+	class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+>
 	{#if browser && mounted}
 		{#each get_current_times() as { city, timezone, time, date }}
-			<div class="card bg-base-100 shadow-xl">
-				<div class="card-body">
-					<div class="flex items-center justify-between">
-						<h2 class="card-title">{city}</h2>
-						<button
-							class="btn btn-square btn-ghost btn-sm"
-							onclick={() => remove_timezone(timezone)}
+			<div class="group card bg-base-100 shadow-sm">
+				<div class="card-body p-4">
+					<!-- svelte-ignore a11y_consider_explicit_label -->
+					<button
+						class="btn btn-ghost btn-xs absolute right-0 top-0 opacity-0 transition-opacity group-hover:opacity-100"
+						onclick={() => remove_timezone(timezone)}
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-4 w-4"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
 						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								class="h-6 w-6"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M6 18L18 6M6 6l12 12"
-								/>
-							</svg>
-						</button>
-					</div>
-					<div class="stats bg-base-200">
-						<div class="stat">
-							<div class="stat-title">Current Time</div>
-							<div class="stat-value font-mono">{time}</div>
-							<div class="stat-desc">{date}</div>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M6 18L18 6M6 6l12 12"
+							/>
+						</svg>
+					</button>
+					<div class="flex flex-col gap-1">
+						<div class="flex items-center justify-between">
+							<h2 class="text-lg font-semibold">{city}</h2>
+							<div class="font-mono text-xl">{time}</div>
+						</div>
+						<div
+							class="flex items-center justify-between text-sm text-base-content/70"
+						>
+							<div>{timezone}</div>
+							<div>{date}</div>
 						</div>
 					</div>
-					<div class="badge badge-ghost">{timezone}</div>
 				</div>
 			</div>
 		{/each}
 	{:else}
-		<div class="card bg-base-100 shadow-xl">
-			<div class="card-body">
-				<div class="skeleton mb-4 h-8 w-32"></div>
-				<div class="skeleton mb-2 h-12 w-full"></div>
-				<div class="skeleton h-4 w-24"></div>
+		<div class="card bg-base-100 shadow-sm">
+			<div class="card-body p-4">
+				<div class="flex flex-col gap-1">
+					<div class="flex items-center justify-between">
+						<div class="skeleton h-6 w-24"></div>
+						<div class="skeleton h-7 w-16"></div>
+					</div>
+					<div class="flex items-center justify-between">
+						<div class="skeleton h-4 w-20"></div>
+						<div class="skeleton h-4 w-12"></div>
+					</div>
+				</div>
 			</div>
 		</div>
 	{/if}
