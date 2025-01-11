@@ -8,7 +8,10 @@
 	<div class="container mx-auto p-4">
 		<div class="flex flex-col gap-8">
 			<header class="card bg-base-100 p-6 shadow-xl">
-				<h1 class="mb-4 text-4xl font-bold">Timezone Dashboard</h1>
+				<h1 class="mb-4 text-4xl font-bold">Timezoner</h1>
+				<p class="text-lg">
+					What's the time now in different timezones.
+				</p>
 				<div class="divider"></div>
 				<TimezoneSelector />
 			</header>
