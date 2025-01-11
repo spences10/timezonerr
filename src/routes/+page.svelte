@@ -4,6 +4,26 @@
 	import TimezoneVisualization from '$lib/components/timezone-visualization.svelte';
 </script>
 
+<svelte:head>
+	<title>Timezoner - World Time Zone Converter</title>
+	<meta
+		name="description"
+		content="Compare times across different time zones with Timezoner. A simple and intuitive world clock and time zone converter."
+	/>
+	<meta
+		name="keywords"
+		content="timezone converter, world clock, time zones, international time"
+	/>
+	<meta
+		property="og:title"
+		content="Timezoner - World Time Zone Converter"
+	/>
+	<meta
+		property="og:description"
+		content="Compare times across different time zones with Timezoner. A simple and intuitive world clock and time zone converter."
+	/>
+</svelte:head>
+
 <div class="min-h-screen bg-base-200">
 	<div class="container mx-auto p-4">
 		<div class="flex flex-col gap-8">
