@@ -82,7 +82,7 @@
 		/>
 
 		{#if error_message}
-			<div class="absolute -bottom-6 left-0 text-sm text-error">
+			<div class="absolute -bottom-4 left-0 text-xs text-error">
 				{error_message}
 			</div>
 		{/if}
