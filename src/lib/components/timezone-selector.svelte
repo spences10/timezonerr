@@ -89,7 +89,7 @@
 
 		{#if dropdown_open}
 			<div
-				class="absolute z-50 mt-1 max-h-96 w-full overflow-auto rounded-lg border border-base-300 bg-base-100 shadow-lg"
+				class="absolute z-50 mt-1 max-h-96 w-full overflow-auto rounded-lg border border-base-300 bg-base-100 shadow-xl"
 			>
 				{#each filter_timezones() as group}
 					{#if group.zones.length > 0}

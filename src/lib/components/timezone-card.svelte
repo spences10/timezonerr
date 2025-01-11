@@ -9,7 +9,7 @@
 	class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 >
 	{#each get_current_times() as { city, timezone, time, date }}
-		<div class="group card bg-base-100 shadow-sm">
+		<div class="group card bg-base-100 shadow-xl">
 			<div class="card-body p-4">
 				<!-- svelte-ignore a11y_consider_explicit_label -->
 				<button
