@@ -1,44 +1,60 @@
-# sv
+# ⏰ Timezoner
 
-Everything you need to build a Svelte project, powered by
-[`sv`](https://github.com/sveltejs/cli).
+> Because "What time is it there?" shouldn't require a PhD in timezone
+> calculations!
 
-## Creating a project
+## 🌍 What's This?
 
-If you're seeing this, you've probably already done this step.
-Congrats!
+Ever been in a Slack chat trying to schedule a meeting with teammates
+spread across the globe, and someone says "Let's meet at 9am!" leaving
+you thinking "9am WHERE?!"
 
-```bash
-# create a new project in the current directory
-npx sv create
+Timezoner is your friendly neighborhood timezone converter, built for
+distributed teams who are tired of doing timezone math in their heads!
 
-# create a new project in my-app
-npx sv create my-app
-```
+## ✨ Features
 
-## Developing
+- 🔍 Smart search (type "turkey" instead of remembering
+  "Europe/Istanbul")
+- 🎯 Quick timezone comparison
+- 📊 Visual time alignment (see how times line up across zones)
+- 💾 Remembers your selected timezones
+- 🌙 Works with your system theme
 
-Once you've created a project and installed dependencies with
-`npm install` (or `pnpm install` or `yarn`), start a development
-server:
+## 🛠️ Tech Stack
 
-```bash
-npm run dev
+- 🎯 SvelteKit, Svelte 5
+- 💅 daisyUI
+- 📝 TypeScript
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+## 🚀 Getting Started
 
 ```bash
-npm run build
+# Clone this bad boy
+git clone https://github.com/spences10/timezoner.git
+
+# Install the goodies
+pnpm install
+
+# Fire it up!
+pnpm dev
 ```
 
-You can preview the production build with `npm run preview`.
+## 🤖 Built With AI
 
-> To deploy your app, you may need to install an
-> [adapter](https://svelte.dev/docs/kit/adapters) for your target
-> environment.
+This project was crafted with the help of:
+
+- [Cline](https://github.com/cline/cline) - The CLI that feels like
+  pair programming
+- [Cursor](https://cursor.sh/) - The editor that thinks with you
+
+## 🎯 Why I Built This
+
+Working with a globally distributed team means you're always doing
+timezone math in your head. After one too many "Sorry, I thought you
+meant 9am MY time" moments, I decided to build something to make our
+lives easier.
+
+## 📜 License
+
+MIT - Because sharing is caring!
