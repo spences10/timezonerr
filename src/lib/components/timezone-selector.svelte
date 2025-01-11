@@ -66,7 +66,7 @@
 	}}
 />
 
-<div class="form-control w-full max-w-md">
+<div class="form-control w-full">
 	<label class="label" for="timezone-search">
 		<span class="label-text">Add Timezone</span>
 	</label>
