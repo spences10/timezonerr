@@ -116,6 +116,11 @@ export function get_current_times() {
 
 // Actions
 export function add_timezone(timezone: TimezoneConfig) {
+	// Check if timezone already exists
+	if (timezones.some((tz) => tz.timezone === timezone.timezone)) {
+		return; // Exit if timezone already exists
+	}
+
 	timezones = [...timezones, timezone];
 	if (typeof window !== 'undefined') {
 		localStorage.setItem(

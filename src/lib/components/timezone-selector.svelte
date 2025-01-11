@@ -3,10 +3,12 @@
 	import {
 		AVAILABLE_TIMEZONES,
 		add_timezone,
+		get_timezones,
 	} from '$lib/state/timezone.svelte';
 
 	let search_query = $state('');
 	let dropdown_open = $state(false);
+	let error_message = $state('');
 
 	const filter_timezones = () => {
 		const query = search_query.toLowerCase().trim();
@@ -40,6 +42,15 @@
 	};
 
 	const handle_add = (zone: TimezoneConfig) => {
+		// Check if timezone already exists
+		if (get_timezones().some((tz) => tz.timezone === zone.timezone)) {
+			error_message = `${zone.city} is already in your list`;
+			setTimeout(() => {
+				error_message = '';
+			}, 3000);
+			return;
+		}
+
 		add_timezone(zone);
 		search_query = '';
 		dropdown_open = false;
@@ -69,6 +80,12 @@
 			bind:value={search_query}
 			onfocus={() => (dropdown_open = true)}
 		/>
+
+		{#if error_message}
+			<div class="absolute -bottom-6 left-0 text-sm text-error">
+				{error_message}
+			</div>
+		{/if}
 
 		{#if dropdown_open}
 			<div

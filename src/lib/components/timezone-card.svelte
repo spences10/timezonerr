@@ -13,7 +13,7 @@
 			<div class="card-body p-4">
 				<!-- svelte-ignore a11y_consider_explicit_label -->
 				<button
-					class="btn btn-ghost btn-xs absolute right-0 top-0 opacity-0 transition-opacity group-hover:opacity-100"
+					class="btn btn-ghost btn-xs absolute right-0 top-0 text-warning opacity-0 transition-opacity group-hover:opacity-70"
 					onclick={() => remove_timezone(timezone)}
 				>
 					<svg
