@@ -8,9 +8,19 @@
 <div class="card bg-base-100 px-5 pt-6 shadow-xl">
 	<div class="overflow-x-auto">
 		<div class="min-w-full">
-			{#each current_times as { city, timezone }}
-				<TimeZoneRow {city} {timezone} />
-			{/each}
+			{#if current_times.length > 0}
+				{#each current_times as { city, timezone }}
+					<TimeZoneRow {city} {timezone} />
+				{/each}
+			{:else}
+				<div
+					class="-mt-6 flex min-h-32 items-center justify-center text-base-content/70"
+				>
+					<p class="text-xl">
+						No timezones added yet. Use the search above to add some!
+					</p>
+				</div>
+			{/if}
 		</div>
 	</div>
 </div>
