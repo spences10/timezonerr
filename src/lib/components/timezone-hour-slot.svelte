@@ -29,15 +29,22 @@
 </script>
 
 <div
-	class="absolute h-full w-[20%] border-r border-base-300 transition-colors hover:bg-base-300"
+	class="absolute h-full w-[20%] border-r border-base-300 transition-all duration-200"
 	style="left: {index * 20}%"
 	class:bg-primary={is_current}
-	class:opacity-5={!is_current}
+	class:hover:bg-primary-focus={is_current}
+	class:bg-secondary={!is_current}
+	class:bg-opacity-50={!is_current}
+	class:hover:bg-secondary-focus={!is_current}
 >
 	<div
 		class="absolute inset-0 flex flex-col items-center justify-center text-center"
 	>
-		<span class="text-base font-medium">
+		<span
+			class="text-base font-medium"
+			class:text-primary-content={is_current}
+			class:text-secondary-content={!is_current}
+		>
 			{format_hour(display_hour)}
 		</span>
 	</div>
