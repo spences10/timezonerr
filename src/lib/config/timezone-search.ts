@@ -28,6 +28,14 @@ export const TIMEZONE_SEARCH_MAPPINGS = {
 	'Asia/Gaza': ['palestine', 'palestinian'],
 	'Asia/Hebron': ['palestine', 'palestinian'],
 	'Asia/Manila': ['philippines', 'philippine', 'pilipinas', 'pinoy'],
+
+	// Non-standard offset timezones
+	'Asia/Kolkata': ['india', 'ist', 'mumbai', 'delhi', 'bangalore'], // UTC+5:30
+	'Asia/Colombo': ['sri lanka', 'colombo'], // UTC+5:30
+	'Asia/Kathmandu': ['nepal', 'kathmandu', 'npt'], // UTC+5:45
+	'Asia/Tehran': ['iran', 'tehran', 'irst'], // UTC+3:30
+	'Asia/Kabul': ['afghanistan', 'kabul'], // UTC+4:30
+	'Asia/Yangon': ['myanmar', 'burma', 'rangoon', 'yangon'], // UTC+6:30
 } as const;
 
 export const get_search_terms = (timezone: string): string[] => {

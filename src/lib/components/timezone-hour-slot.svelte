@@ -22,9 +22,29 @@
 		return `${display} ${period}`;
 	};
 
+	const get_minute_position = (tz: string): number => {
+		const date = new Date();
+		const formatter = new Intl.DateTimeFormat('en-US', {
+			timeZone: tz,
+			hour: '2-digit',
+			minute: '2-digit',
+			hourCycle: 'h23',
+		});
+
+		const parts = formatter.formatToParts(date);
+		const minutes = parseInt(
+			parts.find((p) => p.type === 'minute')?.value || '0',
+		);
+
+		return (minutes / 60) * 100;
+	};
+
 	let display_hour = $derived(get_display_hour(hour, timezone));
 	let is_current = $derived(
 		display_hour === get_current_hour(timezone),
+	);
+	let minute_position = $derived(
+		is_current ? get_minute_position(timezone) : 0,
 	);
 </script>
 
@@ -37,6 +57,12 @@
 	class:bg-opacity-50={!is_current}
 	class:hover:bg-secondary-focus={!is_current}
 >
+	{#if is_current}
+		<div
+			class="absolute h-full w-1 bg-accent transition-all duration-200"
+			style="left: {minute_position}%"
+		></div>
+	{/if}
 	<div
 		class="absolute inset-0 flex flex-col items-center justify-center text-center"
 	>
