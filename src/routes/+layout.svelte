@@ -5,6 +5,7 @@
 		PUBLIC_FATHOM_ID,
 		PUBLIC_FATHOM_URL,
 	} from '$env/static/public';
+	import Footer from '$lib/components/footer.svelte';
 	import * as Fathom from 'fathom-client';
 	import '../app.css';
 
@@ -36,9 +37,12 @@
 		background-size: var(--dot-space) var(--dot-space);
 		background-position: center;"
 	></div>
-	<main class="container relative mx-auto p-4">
-		<div class="flex flex-col gap-8">
+	<main
+		class="container relative mx-auto flex min-h-screen flex-col p-4"
+	>
+		<div class="flex flex-1 flex-col gap-8">
 			{@render children()}
 		</div>
+		<Footer />
 	</main>
 </div>

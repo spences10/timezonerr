@@ -5,7 +5,7 @@
 	let current_times = $derived(get_current_times());
 </script>
 
-<div class="card bg-base-100 px-5 pt-6 shadow-xl">
+<div class="card bg-base-100 px-5 pt-6 shadow-xl mb-8">
 	<div class="overflow-x-auto">
 		<div class="min-w-full">
 			{#if current_times.length > 0}
