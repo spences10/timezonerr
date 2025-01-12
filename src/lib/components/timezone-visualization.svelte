@@ -8,8 +8,8 @@
 <div class="card bg-base-100 px-5 pt-6 shadow-xl">
 	<div class="overflow-x-auto">
 		<div class="min-w-full">
-			{#each current_times as { city, timezone, time }}
-				<TimeZoneRow {city} {timezone} {time} />
+			{#each current_times as { city, timezone }}
+				<TimeZoneRow {city} {timezone} />
 			{/each}
 		</div>
 	</div>
