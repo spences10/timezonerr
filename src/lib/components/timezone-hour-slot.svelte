@@ -59,7 +59,7 @@
 >
 	{#if is_current}
 		<div
-			class="absolute h-full w-1 bg-accent transition-all duration-200"
+			class="absolute h-full w-1 bg-error/75 transition-all duration-200"
 			style="left: {minute_position}%"
 		></div>
 	{/if}
@@ -67,9 +67,9 @@
 		class="absolute inset-0 flex flex-col items-center justify-center text-center"
 	>
 		<span
-			class="text-base font-medium"
 			class:text-primary-content={is_current}
 			class:text-secondary-content={!is_current}
+			class:font-bold={is_current}
 		>
 			{format_hour(display_hour)}
 		</span>
