@@ -21,7 +21,17 @@ function format_city_name(timezone: string): string {
 		.replace(/\b(Ft)\b/g, 'Fort');
 }
 
-// Default timezones for initial display
+// Add this function to detect user's timezone
+const get_user_timezone = (): TimezoneConfig | null => {
+	if (typeof window === 'undefined') return null;
+
+	const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	const city = format_city_name(timezone);
+
+	return { city, timezone };
+};
+
+// Modify the DEFAULT_TIMEZONES initialization
 const DEFAULT_TIMEZONES = [
 	{ city: 'London', timezone: 'Europe/London' },
 	{ city: 'New York', timezone: 'America/New_York' },
@@ -87,10 +97,23 @@ function update_times() {
 function init_client() {
 	if (typeof window === 'undefined') return;
 
-	// Load from localStorage
+	// Load from localStorage or initialize with user's timezone
 	const stored = localStorage.getItem('selected_timezones');
 	if (stored) {
 		timezones = JSON.parse(stored);
+	} else {
+		const user_timezone = get_user_timezone();
+		if (user_timezone) {
+			// Put user's timezone first in the list
+			timezones = [
+				user_timezone,
+				...DEFAULT_TIMEZONES.filter(
+					(tz) => tz.timezone !== user_timezone.timezone,
+				),
+			];
+		} else {
+			timezones = DEFAULT_TIMEZONES;
+		}
 	}
 
 	// Initial update
