@@ -1,4 +1,4 @@
-# ⏰ Timezoner
+# ⏰ Timezonerr
 
 > Because "What time is it there?" shouldn't require a PhD in timezone
 > calculations!
@@ -9,8 +9,9 @@ Ever been in a Slack chat trying to schedule a meeting with teammates
 spread across the globe, and someone says "Let's meet at 9am!" leaving
 you thinking "9am WHERE?!"
 
-Timezoner is your friendly neighborhood timezone converter, built for
-distributed teams who are tired of doing timezone math in their heads!
+Timezonerr is your friendly neighbourhood timezone converter, built
+for distributed teams who are tired of doing timezone math in their
+heads!
 
 ## ✨ Features
 
@@ -31,7 +32,7 @@ distributed teams who are tired of doing timezone math in their heads!
 
 ```bash
 # Clone this bad boy
-git clone https://github.com/spences10/timezoner.git
+git clone https://github.com/spences10/timezonerr.git
 
 # Install the goodies
 pnpm install

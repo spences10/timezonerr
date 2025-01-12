@@ -9,7 +9,7 @@
 		if (navigator.share) {
 			try {
 				await navigator.share({
-					title: 'Timezoner Configuration',
+					title: 'Timezonerr Configuration',
 					text: 'Check out these timezone comparisons',
 					url,
 				});

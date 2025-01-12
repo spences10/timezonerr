@@ -7,10 +7,10 @@
 </script>
 
 <svelte:head>
-	<title>Timezoner - World Time Zone Converter</title>
+	<title>Timezonerr - World Time Zone Converter</title>
 	<meta
 		name="description"
-		content="Compare times across different time zones with Timezoner. A simple and intuitive world clock and time zone converter."
+		content="Compare times across different time zones with Timezonerr. A simple and intuitive world clock and time zone converter."
 	/>
 	<meta
 		name="keywords"
@@ -18,11 +18,11 @@
 	/>
 	<meta
 		property="og:title"
-		content="Timezoner - World Time Zone Converter"
+		content="Timezonerr - World Time Zone Converter"
 	/>
 	<meta
 		property="og:description"
-		content="Compare times across different time zones with Timezoner. A simple and intuitive world clock and time zone converter."
+		content="Compare times across different time zones with Timezonerr. A simple and intuitive world clock and time zone converter."
 	/>
 </svelte:head>
 
@@ -31,7 +31,7 @@
 		class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between"
 	>
 		<div>
-			<h1 class="mb-4 text-4xl font-bold">Timezoner</h1>
+			<h1 class="mb-4 text-4xl font-bold">Timezonerr</h1>
 			<p class="text-lg text-base-content/70">
 				What's the time now in different timezones.
 			</p>
