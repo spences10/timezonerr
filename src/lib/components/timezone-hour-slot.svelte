@@ -1,5 +1,8 @@
 <script lang="ts">
-	import { get_current_hour } from '$lib/state/timezone.svelte';
+	import {
+		get_current_hour,
+		get_expanded_view,
+	} from '$lib/state/timezone.svelte';
 	import { get_timezone_offset } from '$lib/utils/timezone-utils';
 
 	let { hour, index, timezone } = $props<{
@@ -7,6 +10,9 @@
 		index: number;
 		timezone: string;
 	}>();
+
+	let is_expanded = $derived(get_expanded_view());
+	let slot_width = $derived(is_expanded ? 100 / 24 : 20);
 
 	const get_display_hour = (
 		base_hour: number,
@@ -49,8 +55,8 @@
 </script>
 
 <div
-	class="absolute h-full w-[20%] border-r border-base-300 transition-all duration-200"
-	style="left: {index * 20}%"
+	class="absolute h-full border-r border-base-300 transition-all duration-200"
+	style="left: {index * slot_width}%; width: {slot_width}%"
 	class:bg-primary={is_current}
 	class:hover:bg-primary-focus={is_current}
 	class:bg-secondary={!is_current}

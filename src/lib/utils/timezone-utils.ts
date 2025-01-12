@@ -1,7 +1,20 @@
-import { get_current_hour } from '$lib/state/timezone.svelte';
+import {
+	get_current_hour,
+	get_expanded_view,
+} from '$lib/state/timezone.svelte';
 
 export const get_hour_range = (): number[] => {
 	const current_hour = new Date().getHours();
+
+	// Get expanded view state
+	const is_expanded = get_expanded_view();
+
+	if (is_expanded) {
+		// Return full 24 hours starting from midnight
+		return Array.from({ length: 24 }, (_, i) => i);
+	}
+
+	// Original 5-hour range logic
 	const start_hour = (current_hour - 2 + 24) % 24;
 	const hours: number[] = [];
 

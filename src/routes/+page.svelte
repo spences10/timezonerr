@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ExpandedViewToggle from '$lib/components/expanded-view-toggle.svelte';
 	import TimezoneCard from '$lib/components/timezone-card.svelte';
 	import TimezoneSelector from '$lib/components/timezone-selector.svelte';
 	import TimezoneVisualization from '$lib/components/timezone-visualization.svelte';
@@ -37,6 +38,7 @@
 
 		<nav class="sm:min-w-[320px]">
 			<TimezoneSelector />
+			<ExpandedViewToggle />
 		</nav>
 	</div>
 </header>

@@ -71,6 +71,7 @@ let timezones = $state(DEFAULT_TIMEZONES);
 let current_times = $state<
 	Array<TimezoneConfig & { time: string; date: string }>
 >([]);
+let expanded_view = $state(false);
 
 // Update times function
 function update_times() {
@@ -180,4 +181,12 @@ export function get_current_hour(timezone: string): number {
 	);
 
 	return hour;
+}
+
+export function get_expanded_view() {
+	return expanded_view;
+}
+
+export function toggle_expanded_view() {
+	expanded_view = !expanded_view;
 }
