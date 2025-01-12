@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ExpandedViewToggle from '$lib/components/expanded-view-toggle.svelte';
+	import ShareButton from '$lib/components/share-button.svelte';
 	import TimezoneCard from '$lib/components/timezone-card.svelte';
 	import TimezoneSelector from '$lib/components/timezone-selector.svelte';
 	import TimezoneVisualization from '$lib/components/timezone-visualization.svelte';
@@ -38,7 +39,10 @@
 
 		<nav class="sm:min-w-[320px]">
 			<TimezoneSelector />
-			<ExpandedViewToggle />
+			<div class="flex items-center justify-between">
+				<ExpandedViewToggle />
+				<ShareButton />
+			</div>
 		</nav>
 	</div>
 </header>

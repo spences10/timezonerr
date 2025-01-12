@@ -94,26 +94,60 @@ function update_times() {
 	}));
 }
 
-// Initialize client-side functionality
+const parse_url_timezones = (): TimezoneConfig[] | null => {
+	if (typeof window === 'undefined') return null;
+
+	const params = new URLSearchParams(window.location.search);
+	const zones = params.get('tz');
+
+	if (!zones) return null;
+
+	try {
+		return zones
+			.split(',')
+			.map((zone) => {
+				// Validate that timezone exists
+				if (!Intl.supportedValuesOf('timeZone').includes(zone)) {
+					return null;
+				}
+				return {
+					city: format_city_name(zone),
+					timezone: zone,
+				};
+			})
+			.filter((tz): tz is TimezoneConfig => tz !== null);
+	} catch {
+		return null;
+	}
+};
+
 function init_client() {
 	if (typeof window === 'undefined') return;
 
-	// Load from localStorage or initialize with user's timezone
-	const stored = localStorage.getItem('selected_timezones');
-	if (stored) {
-		timezones = JSON.parse(stored);
+	// First check URL parameters
+	const url_timezones = parse_url_timezones();
+	if (url_timezones?.length) {
+		timezones = url_timezones;
+		// Update URL to clean state
+		window.history.replaceState({}, '', window.location.pathname);
 	} else {
-		const user_timezone = get_user_timezone();
-		if (user_timezone) {
-			// Put user's timezone first in the list
-			timezones = [
-				user_timezone,
-				...DEFAULT_TIMEZONES.filter(
-					(tz) => tz.timezone !== user_timezone.timezone,
-				),
-			];
+		// Load from localStorage or initialize with user's timezone
+		const stored = localStorage.getItem('selected_timezones');
+		if (stored) {
+			timezones = JSON.parse(stored);
 		} else {
-			timezones = DEFAULT_TIMEZONES;
+			const user_timezone = get_user_timezone();
+			if (user_timezone) {
+				// Put user's timezone first in the list
+				timezones = [
+					user_timezone,
+					...DEFAULT_TIMEZONES.filter(
+						(tz) => tz.timezone !== user_timezone.timezone,
+					),
+				];
+			} else {
+				timezones = DEFAULT_TIMEZONES;
+			}
 		}
 	}
 
@@ -190,3 +224,11 @@ export function get_expanded_view() {
 export function toggle_expanded_view() {
 	expanded_view = !expanded_view;
 }
+
+export const get_share_url = (): string => {
+	if (typeof window === 'undefined') return '';
+
+	const zones = timezones.map((tz) => tz.timezone).join(',');
+	const base_url = window.location.origin + window.location.pathname;
+	return `${base_url}?tz=${zones}`;
+};
