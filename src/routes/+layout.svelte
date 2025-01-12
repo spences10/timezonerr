@@ -24,8 +24,19 @@
 	});
 </script>
 
-<div class="min-h-screen bg-base-200">
-	<main class="container mx-auto p-4">
+<div class="relative min-h-screen bg-base-200">
+	<div
+		class="absolute inset-0"
+		style="--dot-size: 1.5px; 
+		--dot-space: 24px; 
+		--dot-color: oklch(var(--p) / 0.3); 
+		--dot-bg: transparent; 
+		background-image: 
+			radial-gradient(var(--dot-color) var(--dot-size), var(--dot-bg) var(--dot-size));
+		background-size: var(--dot-space) var(--dot-space);
+		background-position: center;"
+	></div>
+	<main class="container relative mx-auto p-4">
 		<div class="flex flex-col gap-8">
 			{@render children()}
 		</div>
