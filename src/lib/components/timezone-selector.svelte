@@ -70,25 +70,25 @@
 		/>
 
 		{#if error_message}
-			<div class="absolute -bottom-4 left-0 text-xs text-error">
+			<div class="text-error absolute -bottom-4 left-0 text-xs">
 				{error_message}
 			</div>
 		{/if}
 
 		{#if dropdown_open}
 			<div
-				class="absolute z-50 mt-1 max-h-96 w-full overflow-auto rounded-lg border border-base-300 bg-base-100 shadow-xl"
+				class="border-base-300 bg-base-100 absolute z-50 mt-1 max-h-96 w-full overflow-auto rounded-lg border shadow-xl"
 			>
 				{#each filter_timezones() as group}
 					{#if group.zones.length > 0}
 						<div
-							class="border-b border-base-200 bg-base-200 px-3 py-2 font-semibold"
+							class="border-base-200 bg-base-200 border-b px-3 py-2 font-semibold"
 						>
 							{group.continent}
 						</div>
 						{#each group.zones as zone}
 							<button
-								class="w-full px-4 py-2 text-left hover:bg-base-200"
+								class="hover:bg-base-200 w-full px-4 py-2 text-left"
 								onclick={() => handle_add(zone)}
 							>
 								<div>{zone.city}</div>
@@ -99,7 +99,7 @@
 				{/each}
 
 				{#if filter_timezones().length === 0}
-					<div class="p-4 text-center text-base-content/60">
+					<div class="text-base-content/60 p-4 text-center">
 						No timezones found
 					</div>
 				{/if}

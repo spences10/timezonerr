@@ -25,7 +25,7 @@
 	});
 </script>
 
-<div class="relative min-h-screen bg-base-200">
+<div class="bg-base-200 relative min-h-screen">
 	<div
 		class="absolute inset-0"
 		style="--dot-size: 1.5px; 
@@ -38,7 +38,7 @@
 		background-position: center;"
 	></div>
 	<main
-		class="container relative mx-auto flex min-h-screen flex-col p-4"
+		class="relative container mx-auto flex min-h-screen flex-col p-4"
 	>
 		<div class="flex flex-1 flex-col gap-8">
 			{@render children()}

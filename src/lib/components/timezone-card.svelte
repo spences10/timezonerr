@@ -14,7 +14,7 @@
 			<div class="card-body p-4">
 				<!-- svelte-ignore a11y_consider_explicit_label -->
 				<button
-					class="btn btn-ghost btn-xs absolute right-0 top-0 text-warning opacity-0 transition-opacity group-hover:opacity-70"
+					class="btn btn-ghost btn-xs text-warning absolute top-0 right-0 opacity-0 transition-opacity group-hover:opacity-70"
 					onclick={() => remove_timezone(timezone)}
 				>
 					<Cross class_names="h-4 w-4" />
@@ -25,7 +25,7 @@
 						<div class="font-mono text-xl">{time}</div>
 					</div>
 					<div
-						class="flex items-center justify-between text-sm text-base-content/70"
+						class="text-base-content/70 flex items-center justify-between text-sm"
 					>
 						<div>{timezone}</div>
 						<div>{date}</div>

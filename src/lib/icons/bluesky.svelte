@@ -40,7 +40,7 @@ Thanks Phil!
 {:else}
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
-		class="block fill-current text-primary transition hover:text-secondary"
+		class="text-primary hover:text-secondary block fill-current transition"
 		{width}
 		{height}
 		viewBox="0 0 256 226"

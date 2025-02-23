@@ -2,7 +2,7 @@
 	import { Bluesky } from '$lib/icons';
 </script>
 
-<footer class="card mt-auto bg-base-100 p-6 shadow-xl">
+<footer class="card bg-base-100 mt-auto p-6 shadow-xl">
 	<div
 		class="flex flex-col items-center justify-center gap-4 sm:flex-row sm:justify-between"
 	>

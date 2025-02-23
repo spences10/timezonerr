@@ -55,7 +55,7 @@
 </script>
 
 <div
-	class="absolute h-full border-r border-base-300 transition-all duration-200"
+	class="border-base-300 absolute h-full border-r transition-all duration-200"
 	style="left: {index * slot_width}%; width: {slot_width}%"
 	class:bg-primary={is_current}
 	class:hover:bg-primary-focus={is_current}
@@ -65,7 +65,7 @@
 >
 	{#if is_current}
 		<div
-			class="absolute h-full w-1 bg-error/75 transition-all duration-200"
+			class="bg-error/75 absolute h-full w-1 transition-all duration-200"
 			style="left: {minute_position}%"
 		></div>
 	{/if}

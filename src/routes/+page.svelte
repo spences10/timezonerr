@@ -32,7 +32,7 @@
 	>
 		<div>
 			<h1 class="mb-4 text-4xl font-bold">Timezonerr</h1>
-			<p class="text-lg text-base-content/70">
+			<p class="text-base-content/70 text-lg">
 				What's the time now in different timezones.
 			</p>
 		</div>
