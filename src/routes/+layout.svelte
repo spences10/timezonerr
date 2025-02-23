@@ -30,7 +30,7 @@
 		class="absolute inset-0"
 		style="--dot-size: 1.5px; 
 		--dot-space: 24px; 
-		--dot-color: oklch(var(--p) / 0.3); 
+		--dot-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
 		--dot-bg: transparent; 
 		background-image: 
 			radial-gradient(var(--dot-color) var(--dot-size), var(--dot-bg) var(--dot-size));
