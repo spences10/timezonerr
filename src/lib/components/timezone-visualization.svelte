@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { get_current_times } from '$lib/state/timezone.svelte';
+	import { get_current_times } from '#lib/state/timezone.svelte.js';
 	import TimeZoneRow from './timezone-row.svelte';
 
 	let current_times = $derived(get_current_times());
 </script>
 
-<div class="card bg-base-100 mb-8 px-5 pt-6 shadow-xl">
+<div class="card mb-8 bg-base-100 px-5 pt-6 shadow-xl">
 	<div class="overflow-x-auto">
 		<div class="min-w-full">
 			{#if current_times.length > 0}
@@ -14,7 +14,7 @@
 				{/each}
 			{:else}
 				<div
-					class="text-base-content/70 -mt-6 flex min-h-32 items-center justify-center"
+					class="-mt-6 flex min-h-32 items-center justify-center text-base-content/70"
 				>
 					<p class="text-xl">
 						No timezones added yet. Use the search above to add some!

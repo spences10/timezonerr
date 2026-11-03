@@ -2,7 +2,7 @@
 	import {
 		get_expanded_view,
 		toggle_expanded_view,
-	} from '$lib/state/timezone.svelte';
+	} from '#lib/state/timezone.svelte.js';
 
 	let is_expanded = $derived(get_expanded_view());
 </script>

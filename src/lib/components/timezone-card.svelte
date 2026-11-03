@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Cross } from '$lib/icons';
+	import { Cross } from '#lib/icons/index.js';
 	import {
 		get_current_times,
 		remove_timezone,
-	} from '$lib/state/timezone.svelte';
+	} from '#lib/state/timezone.svelte.js';
 </script>
 
 <div
@@ -14,7 +14,7 @@
 			<div class="card-body p-4">
 				<!-- svelte-ignore a11y_consider_explicit_label -->
 				<button
-					class="btn btn-ghost btn-xs text-warning absolute top-0 right-0 opacity-0 transition-opacity group-hover:opacity-70"
+					class="btn absolute top-0 right-0 btn-ghost text-warning opacity-0 transition-opacity btn-xs group-hover:opacity-70"
 					onclick={() => remove_timezone(timezone)}
 				>
 					<Cross class_names="h-4 w-4" />
@@ -25,7 +25,7 @@
 						<div class="font-mono text-xl">{time}</div>
 					</div>
 					<div
-						class="text-base-content/70 flex items-center justify-between text-sm"
+						class="flex items-center justify-between text-sm text-base-content/70"
 					>
 						<div>{timezone}</div>
 						<div>{date}</div>

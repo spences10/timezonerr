@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { get_share_url } from '$lib/state/timezone.svelte';
+	import { get_share_url } from '#lib/state/timezone.svelte.js';
 
 	let copied = $state(false);
 

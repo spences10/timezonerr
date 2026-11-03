@@ -1,9 +1,9 @@
 <script lang="ts">
-	import ExpandedViewToggle from '$lib/components/expanded-view-toggle.svelte';
-	import ShareButton from '$lib/components/share-button.svelte';
-	import TimezoneCard from '$lib/components/timezone-card.svelte';
-	import TimezoneSelector from '$lib/components/timezone-selector.svelte';
-	import TimezoneVisualization from '$lib/components/timezone-visualization.svelte';
+	import ExpandedViewToggle from '#lib/components/expanded-view-toggle.svelte';
+	import ShareButton from '#lib/components/share-button.svelte';
+	import TimezoneCard from '#lib/components/timezone-card.svelte';
+	import TimezoneSelector from '#lib/components/timezone-selector.svelte';
+	import TimezoneVisualization from '#lib/components/timezone-visualization.svelte';
 </script>
 
 <svelte:head>
@@ -32,7 +32,7 @@
 	>
 		<div>
 			<h1 class="mb-4 text-4xl font-bold">Timezonerr</h1>
-			<p class="text-base-content/70 text-lg">
+			<p class="text-lg text-base-content/70">
 				What's the time now in different timezones.
 			</p>
 		</div>

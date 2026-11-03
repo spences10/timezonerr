@@ -1,7 +1,7 @@
 import {
 	get_current_hour,
 	get_expanded_view,
-} from '$lib/state/timezone.svelte';
+} from '#lib/state/timezone.svelte.js';
 
 export const get_hour_range = (): number[] => {
 	const current_hour = new Date().getHours();

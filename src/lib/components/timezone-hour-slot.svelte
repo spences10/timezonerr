@@ -2,14 +2,18 @@
 	import {
 		get_current_hour,
 		get_expanded_view,
-	} from '$lib/state/timezone.svelte';
-	import { get_timezone_offset } from '$lib/utils/timezone-utils';
+	} from '#lib/state/timezone.svelte.js';
+	import { get_timezone_offset } from '#lib/utils/timezone-utils.js';
 
-	let { hour, index, timezone } = $props<{
+	let {
+		hour,
+		index,
+		timezone,
+	}: {
 		hour: number;
 		index: number;
 		timezone: string;
-	}>();
+	} = $props();
 
 	let is_expanded = $derived(get_expanded_view());
 	let slot_width = $derived(is_expanded ? 100 / 24 : 20);
@@ -55,7 +59,7 @@
 </script>
 
 <div
-	class="border-base-300 absolute h-full border-r transition-all duration-200"
+	class="absolute h-full border-r border-base-300 transition-all duration-200"
 	style="left: {index * slot_width}%; width: {slot_width}%"
 	class:bg-primary={is_current}
 	class:hover:bg-primary-focus={is_current}
@@ -65,7 +69,7 @@
 >
 	{#if is_current}
 		<div
-			class="bg-error/75 absolute h-full w-1 transition-all duration-200"
+			class="absolute h-full w-1 bg-error/75 transition-all duration-200"
 			style="left: {minute_position}%"
 		></div>
 	{/if}

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { get_search_terms } from '$lib/config/timezone-search';
-	import type { TimezoneConfig } from '$lib/state/timezone.svelte';
+	import { get_search_terms } from '#lib/config/timezone-search.js';
+	import type { TimezoneConfig } from '#lib/state/timezone.svelte.js';
 	import {
 		AVAILABLE_TIMEZONES,
 		add_timezone,
 		get_timezones,
-	} from '$lib/state/timezone.svelte';
+	} from '#lib/state/timezone.svelte.js';
 
 	let search_query = $state('');
 	let dropdown_open = $state(false);
@@ -63,32 +63,32 @@
 		<input
 			type="text"
 			id="timezone-search"
-			class="input input-bordered w-full"
+			class="input-bordered input w-full"
 			placeholder="Search for a city or timezone..."
 			bind:value={search_query}
 			onfocus={() => (dropdown_open = true)}
 		/>
 
 		{#if error_message}
-			<div class="text-error absolute -bottom-4 left-0 text-xs">
+			<div class="absolute -bottom-4 left-0 text-xs text-error">
 				{error_message}
 			</div>
 		{/if}
 
 		{#if dropdown_open}
 			<div
-				class="border-base-300 bg-base-100 absolute z-50 mt-1 max-h-96 w-full overflow-auto rounded-lg border shadow-xl"
+				class="absolute z-50 mt-1 max-h-96 w-full overflow-auto rounded-lg border border-base-300 bg-base-100 shadow-xl"
 			>
 				{#each filter_timezones() as group}
 					{#if group.zones.length > 0}
 						<div
-							class="border-base-200 bg-base-200 border-b px-3 py-2 font-semibold"
+							class="border-b border-base-200 bg-base-200 px-3 py-2 font-semibold"
 						>
 							{group.continent}
 						</div>
 						{#each group.zones as zone}
 							<button
-								class="hover:bg-base-200 w-full px-4 py-2 text-left"
+								class="w-full px-4 py-2 text-left hover:bg-base-200"
 								onclick={() => handle_add(zone)}
 							>
 								<div>{zone.city}</div>
@@ -99,7 +99,7 @@
 				{/each}
 
 				{#if filter_timezones().length === 0}
-					<div class="text-base-content/60 p-4 text-center">
+					<div class="p-4 text-center text-base-content/60">
 						No timezones found
 					</div>
 				{/if}
